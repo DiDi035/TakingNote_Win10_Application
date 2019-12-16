@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>ffbc48ea-5dea-48c6-b58d-3d5070baf618</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>51d80def-a687-4562-be89-a75826650a06</UniqueIdentifier>
+      <Extensions>bmp;fbx;gif;jpg;jpeg;tga;tiff;tif;png</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="FileWorkerTxt.cpp" />
+    <ClCompile Include="Helper.cpp" />
+    <ClCompile Include="MainBoard.cpp" />
+    <ClCompile Include="Note.cpp" />
+    <ClCompile Include="NoteLoader.cpp" />
+    <ClCompile Include="stringToStringConverter.cpp" />
+    <ClCompile Include="StrTostring.cpp" />
+    <ClCompile Include="Tag.cpp" />
+    <ClCompile Include="TagLoader.cpp" />
+    <ClCompile Include="TagSaver.cpp" />
+    <ClCompile Include="NoteSaver.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Converter.h" />
+    <ClInclude Include="DataLoader.h" />
+    <ClInclude Include="FileWorker.h" />
+    <ClInclude Include="FileWorkerTxt.h" />
+    <ClInclude Include="Helper.h" />
+    <ClInclude Include="MainBoard.h" />
+    <ClInclude Include="Note.h" />
+    <ClInclude Include="NoteFactory.h" />
+    <ClInclude Include="NoteLoader.h" />
+    <ClInclude Include="stringToStringConverter.h" />
+    <ClInclude Include="StrTostringConverter.h" />
+    <ClInclude Include="Tag.h" />
+    <ClInclude Include="TagFactory.h" />
+    <ClInclude Include="TagLoader.h" />
+    <ClInclude Include="TagSaver.h" />
+    <ClInclude Include="NoteSaver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\LockScreenLogo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\DeleteDustbin-512.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\1483063.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\rubbish-bins-waste-paper-baskets-recycling-computer-icons-waste-collection-garbage-bin-modeling.jpg">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\60761.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\62314.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\1486676.png">
+      <Filter>Assets</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainPage.xaml" />
+  </ItemGroup>
+</Project>
