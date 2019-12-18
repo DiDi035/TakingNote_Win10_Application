@@ -62,9 +62,11 @@ namespace OOPLab_Final
         private: ::Windows::UI::Xaml::Controls::Button^ addNewNoteButton;
         private: ::Windows::UI::Xaml::Controls::SplitView^ opSplitView;
         private: ::Windows::UI::Xaml::Controls::Button^ optionButton;
+        private: ::Windows::UI::Xaml::Controls::SplitView^ splitViewDelete;
         private: ::Windows::UI::Xaml::Controls::Button^ rubbishBin;
         private: ::Windows::UI::Xaml::Controls::Button^ SaveButton;
         private: ::Windows::UI::Xaml::Controls::Image^ RubbishBin;
+        private: ::Windows::UI::Xaml::Controls::StackPanel^ stackPanelDeleteNote;
         private: ::Windows::UI::Xaml::Shapes::Rectangle^ FillRec_1;
         private: ::Windows::UI::Xaml::Shapes::Rectangle^ FillRec_2;
         private: ::Windows::UI::Xaml::Shapes::Rectangle^ FillRec_3;

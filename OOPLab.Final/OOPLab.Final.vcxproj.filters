@@ -25,6 +25,7 @@
     <ClCompile Include="TagLoader.cpp" />
     <ClCompile Include="TagSaver.cpp" />
     <ClCompile Include="NoteSaver.cpp" />
+    <ClCompile Include="StrToIntConverter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -44,6 +45,7 @@
     <ClInclude Include="TagLoader.h" />
     <ClInclude Include="TagSaver.h" />
     <ClInclude Include="NoteSaver.h" />
+    <ClInclude Include="StrToIntConverter.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\LockScreenLogo.scale-200.png">

@@ -24,3 +24,4 @@
 #include"Helper.h"
 #include"TagSaver.h"
 #include"NoteSaver.h"
+#include"StrToIntConverter.h"

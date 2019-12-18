@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid x:Name="mainScreen" BorderBrush="#FF0CBF7B" BorderThickness="2" Background="#FF010C02">
+    <Grid x:Name="mainScreen" BorderBrush="#FF0CBF7B" BorderThickness="1" Background="#FF010C02">
 
 
         <TextBox x:Name="searchBar" Width="400" Height="30" HorizontalAlignment="Center" 
@@ -47,7 +47,7 @@
             </Grid>
         </Button>
         <SplitView x:Name="opSplitView" PanePlacement="Right" HorizontalAlignment="Right"  
-                   VerticalAlignment="Top" Margin="0,0,64,0" Height="500"  Width="200" 
+                   VerticalAlignment="Top" Margin="0,0,64,0" Height="100"  Width="200" 
                    Background="#FF010C02" BorderBrush="Black" PaneBackground="#FF010C02" 
                    OpenPaneLength="200" DisplayMode="CompactInline" Visibility="Collapsed">
             <SplitView.Pane>
@@ -60,12 +60,10 @@
                             Background="#FF0CBF7B" Foreground="Black" FontSize="15"
                             BorderBrush="#FF0CBF7B" BorderThickness="1"></Button>
                     <Grid VerticalAlignment="Bottom" Height="403" Width="200">
-                        <ScrollViewer VerticalAlignment="Bottom" Height="403" Width="200" IsEnabled="True">
-                            <StackPanel x:Name="gridAddTag" Width="200" 
+                        <StackPanel x:Name="gridAddTag" Width="200" 
                                 VerticalAlignment="Bottom"
-                                   Height="403">
-                            </StackPanel>
-                        </ScrollViewer>
+                                   Height="0">
+                        </StackPanel>
                     </Grid>
                 </Grid>
             </SplitView.Pane>
@@ -85,7 +83,18 @@
                            Margin="0, 20, 3, 0" ></Rectangle>
             </Grid>
         </Button>
-        <Button x:Name="rubbishBin" RequestedTheme="Dark"  
+        <SplitView x:Name="splitViewDelete" Height="0" Width="150" VerticalAlignment="Bottom" HorizontalAlignment="Left" 
+                   Margin="0, 0, 0, 60" PanePlacement="Left" Background="#FF010C02" 
+                   PaneBackground="#FF010C02" OpenPaneLength="150" DisplayMode="CompactInline" Visibility="Collapsed"
+                   BorderThickness="1">
+            <SplitView.Pane>
+                <StackPanel x:Name="stackPanelDeleteNote" Height="0" Width="150" VerticalAlignment="Center"
+                            HorizontalAlignment="Center" BorderBrush="#FF0CBF7B" BorderThickness = "1"
+                            Tapped="stackPanelDeleteNote_Tapped">
+                </StackPanel>
+            </SplitView.Pane>
+        </SplitView>
+        <Button x:Name="rubbishBin" RequestedTheme="Dark" Click="deleteNote_Click"  
                 Width="60" Height="60" VerticalAlignment="Bottom" Background="#FF0CBF7B" >
             <Image HorizontalAlignment="Center" VerticalAlignment="Center" 
                    Source="/Assets/60761.png" 

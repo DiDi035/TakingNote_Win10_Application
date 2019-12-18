@@ -78,74 +78,88 @@ void ::OOPLab_Final::MainPage::Connect(int __connectionId, ::Platform::Object^ _
         break;
     case 10:
         {
-            this->rubbishBin = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
+            this->splitViewDelete = safe_cast<::Windows::UI::Xaml::Controls::SplitView^>(__target);
         }
         break;
     case 11:
+        {
+            this->rubbishBin = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
+            (safe_cast<::Windows::UI::Xaml::Controls::Button^>(this->rubbishBin))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::OOPLab_Final::MainPage::*)
+                (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&MainPage::deleteNote_Click);
+        }
+        break;
+    case 12:
         {
             this->SaveButton = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
             (safe_cast<::Windows::UI::Xaml::Controls::Button^>(this->SaveButton))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::OOPLab_Final::MainPage::*)
                 (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&MainPage::saveButton_Click);
         }
         break;
-    case 12:
+    case 13:
         {
             this->RubbishBin = safe_cast<::Windows::UI::Xaml::Controls::Image^>(__target);
         }
         break;
-    case 13:
-        {
-            this->FillRec_1 = safe_cast<::Windows::UI::Xaml::Shapes::Rectangle^>(__target);
-        }
-        break;
     case 14:
         {
-            this->FillRec_2 = safe_cast<::Windows::UI::Xaml::Shapes::Rectangle^>(__target);
+            this->stackPanelDeleteNote = safe_cast<::Windows::UI::Xaml::Controls::StackPanel^>(__target);
+            (safe_cast<::Windows::UI::Xaml::Controls::StackPanel^>(this->stackPanelDeleteNote))->Tapped += ref new ::Windows::UI::Xaml::Input::TappedEventHandler(this, (void (::OOPLab_Final::MainPage::*)
+                (::Platform::Object^, ::Windows::UI::Xaml::Input::TappedRoutedEventArgs^))&MainPage::stackPanelDeleteNote_Tapped);
         }
         break;
     case 15:
         {
-            this->FillRec_3 = safe_cast<::Windows::UI::Xaml::Shapes::Rectangle^>(__target);
+            this->FillRec_1 = safe_cast<::Windows::UI::Xaml::Shapes::Rectangle^>(__target);
         }
         break;
     case 16:
         {
-            this->textBoxAddTag = safe_cast<::Windows::UI::Xaml::Controls::TextBox^>(__target);
+            this->FillRec_2 = safe_cast<::Windows::UI::Xaml::Shapes::Rectangle^>(__target);
         }
         break;
     case 17:
+        {
+            this->FillRec_3 = safe_cast<::Windows::UI::Xaml::Shapes::Rectangle^>(__target);
+        }
+        break;
+    case 18:
+        {
+            this->textBoxAddTag = safe_cast<::Windows::UI::Xaml::Controls::TextBox^>(__target);
+        }
+        break;
+    case 19:
         {
             this->addTagButton = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
             (safe_cast<::Windows::UI::Xaml::Controls::Button^>(this->addTagButton))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::OOPLab_Final::MainPage::*)
                 (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&MainPage::addTagButton_Click);
         }
         break;
-    case 18:
+    case 20:
         {
             this->gridAddTag = safe_cast<::Windows::UI::Xaml::Controls::StackPanel^>(__target);
         }
         break;
-    case 19:
+    case 21:
         {
             this->FillRec_4 = safe_cast<::Windows::UI::Xaml::Shapes::Rectangle^>(__target);
         }
         break;
-    case 20:
+    case 22:
         {
             this->FillRec_5 = safe_cast<::Windows::UI::Xaml::Shapes::Rectangle^>(__target);
         }
         break;
-    case 21:
+    case 23:
         {
             this->borderNoteView = safe_cast<::Windows::UI::Xaml::Controls::Border^>(__target);
         }
         break;
-    case 22:
+    case 24:
         {
             this->scrollNoteView = safe_cast<::Windows::UI::Xaml::Controls::ScrollViewer^>(__target);
         }
         break;
-    case 23:
+    case 25:
         {
             this->stackPanelViewNote = safe_cast<::Windows::UI::Xaml::Controls::StackPanel^>(__target);
         }

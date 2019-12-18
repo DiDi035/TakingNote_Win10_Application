@@ -185,6 +185,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </ClInclude>
     <ClInclude Include="stringToStringConverter.h" />
+    <ClInclude Include="StrToIntConverter.h" />
     <ClInclude Include="StrTostringConverter.h" />
     <ClInclude Include="Tag.h" />
     <ClInclude Include="TagFactory.h" />
@@ -243,6 +244,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="stringToStringConverter.cpp" />
+    <ClCompile Include="StrToIntConverter.cpp" />
     <ClCompile Include="StrTostring.cpp" />
     <ClCompile Include="Tag.cpp" />
     <ClCompile Include="TagLoader.cpp" />
