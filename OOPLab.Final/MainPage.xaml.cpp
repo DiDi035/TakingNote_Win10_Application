@@ -48,8 +48,11 @@ void OOPLab_Final::MainPage::put_list_note_to_UI(int numTotalNote) {
 		ss << listNote[i].get_id();
 		String^ noteId = stringConverter.convert_from_string_to_String(ss.str());
 		String^ noteContent = stringConverter.convert_from_string_to_String(listNote[i].get_text());
-		string tagString = Helper::combine_list_tag_to_single_string(listNote[i].get_list_tags());
-		String^ tagContent = stringConverter.convert_from_string_to_String(tagString);
+
+		Grid^ textBoxGrid = ref new Grid();
+		textBoxGrid->Height = 230;
+		textBoxGrid->Width = 490;
+
 		TextBox^ noteTextBox = ref new TextBox();
 		Button^ addTagToNoteButton = ref new Button();
 		noteTextBox->Name = noteId;
@@ -61,9 +64,37 @@ void OOPLab_Final::MainPage::put_list_note_to_UI(int numTotalNote) {
 		noteTextBox->AcceptsReturn = true;
 		noteTextBox->Text = noteContent;
 		noteTextBox->RequestedTheme = Windows::UI::Xaml::ElementTheme::Dark;
-		noteTextBox->BorderBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
-		noteTextBox->BorderThickness = 2;
-		stackPanelViewNote->Children->Append(noteTextBox);
+		//noteTextBox->BorderBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
+		//noteTextBox->BorderThickness = 2;
+		noteTextBox->VerticalAlignment = Windows::UI::Xaml::VerticalAlignment::Bottom;
+		textBoxGrid->Children->Append(noteTextBox);
+
+		StackPanel^ tagStackPanel = ref new StackPanel();
+		tagStackPanel->Height = 33;
+		tagStackPanel->Width = 440; 
+		tagStackPanel->VerticalAlignment = Windows::UI::Xaml::VerticalAlignment::Top;
+		tagStackPanel->HorizontalAlignment = Windows::UI::Xaml::HorizontalAlignment::Right;
+		//tagStackPanel->BorderBrush = ref new SolidColorBrush(Windows::UI::Colors::Aqua);
+		//tagStackPanel->BorderThickness = 1;
+		tagStackPanel->Orientation = Windows::UI::Xaml::Controls::Orientation::Horizontal;
+		tagStackPanel->Margin = Windows::UI::Xaml::Thickness(0,15,0,0);
+		textBoxGrid->Children->Append(tagStackPanel);
+
+		vector<string> tagList = listNote[i].get_list_tags();
+		int tagListSize = tagList.size();
+		for (int j = 0; j < tagListSize; ++j) {
+			Button^ tagButton = ref new Button();
+			tagButton->Height = 33;
+			tagButton->Width = tagList[j].length()*9;
+			tagButton->BorderBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
+			String^ tagStringStore = stringConverter.convert_from_string_to_String(tagList[j].c_str());
+			tagButton->Content = tagStringStore;
+	
+			tagStackPanel->Children->Append(tagButton);
+		}
+
+		stackPanelViewNote->Children->Append(textBoxGrid);
+
 		note = ref new Button();
 		note->Height = 35;
 		note->Width = 150;
@@ -214,7 +245,8 @@ void OOPLab_Final::MainPage::saveButton_Click(Platform::Object^ sender, Windows:
 {
 	int childrenCountStackPanel = stackPanelViewNote->Children->Size;
 	for (auto i = 0; i < childrenCountStackPanel; ++i) {
-		TextBox^ noteTextBox = (TextBox^)stackPanelViewNote->Children->GetAt(i);
+		Grid^ noteGrid = (Grid^)stackPanelViewNote->Children->GetAt(i);
+		TextBox^ noteTextBox = (TextBox^)noteGrid->Children->GetAt(0);
 		String^ noteContentStr = noteTextBox->Text;
 		string noteContentString = strToStringConverter.convert_from_String_to_string(noteContentStr);
 		listNote[i].set_text(noteContentString);
