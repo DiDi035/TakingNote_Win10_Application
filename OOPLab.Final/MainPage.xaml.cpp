@@ -57,7 +57,6 @@ void OOPLab_Final::MainPage::put_list_note_to_UI(int numTotalNote) {
 		Button^ addTagToNoteButton = ref new Button();
 		noteTextBox->Name = noteId;
 		noteTextBox->Width = 490;
-		noteTextBox->Name = "1";
 		noteTextBox->Height = 200;
 		noteTextBox->Header = "No." + noteId; // +"                         Tag: " + tagContent;
 		noteTextBox->TextWrapping = TextWrapping::Wrap;
@@ -141,7 +140,8 @@ void OOPLab_Final::MainPage::buttonDeleteTag_Click(Platform::Object^ sender, Win
 					//update id of list Note
 					listNote[j].set_id(intStore);
 					//update id of StackPanelViewNote
-					TextBox^ textBox = (TextBox^)stackPanelViewNote->Children->GetAt(j);
+					Grid^ grid = (Grid^)stackPanelViewNote->Children->GetAt(j);
+					TextBox^ textBox = (TextBox^)grid->Children->GetAt(0);
 					textBox->Header = "No." + StrStore;
 				}
 				else if (length == 5) {
@@ -191,22 +191,38 @@ void OOPLab_Final::MainPage::opButton_Click(Platform::Object^ sender, Windows::U
 
 void OOPLab_Final::MainPage::addNewNote_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
+	Grid^ textBoxGrid = ref new Grid();
+	textBoxGrid->Height = 230;
+	textBoxGrid->Width = 490;
+
 	numTotalNote++;
 	listNote.push_back(Note(numTotalNote, ""));
 	stringstream ss;
 	ss << listNote[numTotalNote-1].get_id();
 	String^ noteId = stringConverter.convert_from_string_to_String(ss.str());
 	TextBox^ noteTextBox = ref new TextBox();
+	noteTextBox->Name = noteId;
 	noteTextBox->Width = 490;
 	noteTextBox->Height = 200;
-	noteTextBox->Header = "No." + noteId; // +"                         Tag: ";
-	noteTextBox->PlaceholderText = "Type your notes here";
+	noteTextBox->Header = "No." + noteId; // +"                         Tag: " + tagContent;
 	noteTextBox->TextWrapping = TextWrapping::Wrap;
 	noteTextBox->AcceptsReturn = true;
 	noteTextBox->RequestedTheme = Windows::UI::Xaml::ElementTheme::Dark;
-	noteTextBox->BorderBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
-	noteTextBox->BorderThickness = 2;
-	stackPanelViewNote->Children->Append(noteTextBox);
+	noteTextBox->VerticalAlignment = Windows::UI::Xaml::VerticalAlignment::Bottom;
+	textBoxGrid->Children->Append(noteTextBox);
+
+	StackPanel^ tagStackPanel = ref new StackPanel();
+	tagStackPanel->Height = 33;
+	tagStackPanel->Width = 440;
+	tagStackPanel->VerticalAlignment = Windows::UI::Xaml::VerticalAlignment::Top;
+	tagStackPanel->HorizontalAlignment = Windows::UI::Xaml::HorizontalAlignment::Right;
+	//tagStackPanel->BorderBrush = ref new SolidColorBrush(Windows::UI::Colors::Aqua);
+	//tagStackPanel->BorderThickness = 1;
+	tagStackPanel->Orientation = Windows::UI::Xaml::Controls::Orientation::Horizontal;
+	tagStackPanel->Margin = Windows::UI::Xaml::Thickness(0, 15, 0, 0);
+	textBoxGrid->Children->Append(tagStackPanel);
+
+	stackPanelViewNote->Children->Append(textBoxGrid);
 
 	stackPanelDeleteNote->Height += 35;
 	splitViewDelete->Height += 35;
