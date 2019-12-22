@@ -172,6 +172,7 @@
     <ClInclude Include="FileWorker.h" />
     <ClInclude Include="FileWorkerTxt.h" />
     <ClInclude Include="Helper.h" />
+    <ClInclude Include="KMP.h" />
     <ClInclude Include="MainBoard.h" />
     <ClInclude Include="Note.h" />
     <ClInclude Include="NoteFactory.h" />

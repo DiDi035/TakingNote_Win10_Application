@@ -25,3 +25,4 @@
 #include"TagSaver.h"
 #include"NoteSaver.h"
 #include"StrToIntConverter.h"
+#include"KMP.h"

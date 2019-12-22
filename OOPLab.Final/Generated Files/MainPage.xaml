@@ -10,57 +10,58 @@
 
     <Grid x:ConnectionId='2' x:Name="mainScreen" BorderBrush="#FF0CBF7B" BorderThickness="1" Background="#FF010C02">
 
-
-        <TextBox x:ConnectionId='3' x:Name="searchBar" Width="400" Height="30" HorizontalAlignment="Center" 
+        <Button x:ConnectionId='3' x:Name="backButton" Width="40" Height="40" VerticalAlignment="Top"
+                HorizontalAlignment="Left" Background="#FF0CBF7B"                   ></Button>
+        <TextBox x:ConnectionId='4' x:Name="searchBar" Width="400" Height="30" HorizontalAlignment="Center" 
                  VerticalAlignment="Center"
                  Margin="0,0,0,530" Background="#FF010C02" Foreground="White"
                  BorderBrush="White"
                  SelectionHighlightColor="#FFC4CFD1" BorderThickness="2" />
-        <TextBlock x:ConnectionId='4' x:Name="tittle" HorizontalAlignment="Left" Margin="13,5,0,0" Text="Notes" 
+        <TextBlock x:ConnectionId='5' x:Name="tittle" HorizontalAlignment="Left" Margin="122,5,0,0" Text="Notes" 
                    TextWrapping="Wrap" VerticalAlignment="Top" FontSize="60" RequestedTheme="Light" 
                    FontWeight="Bold" Foreground="#FF0CBF7B"/>
 
-        <Button x:ConnectionId='5' x:Name="searchButton" HorizontalAlignment="Right" Width="100" Height="30" 
+        <Button x:ConnectionId='6' x:Name="searchButton" HorizontalAlignment="Right" Width="100" Height="30" 
                 Content="Search" Margin="0, 0, 50, 440" Background="#FF0CBF7B" RequestedTheme="Dark" 
                 FocusVisualPrimaryBrush="#FFEDEBEB" BorderBrush="#FF0CBF7B" Foreground="Black" 
                 FontSize="15"                            ></Button>
 
         
-        <Grid x:ConnectionId='6' x:Name="gridNoteView" Height="510" VerticalAlignment="Bottom" Margin="0, 0, 0, 61">
-            <Border x:ConnectionId='23' x:Name="borderNoteView" BorderBrush="#FF0CBF7B" BorderThickness="1">
-                <ScrollViewer x:ConnectionId='24' x:Name="scrollNoteView">
-                    <StackPanel x:ConnectionId='25' x:Name="stackPanelViewNote">
+        <Grid x:ConnectionId='7' x:Name="gridNoteView" Height="510" VerticalAlignment="Bottom" Margin="0, 0, 0, 61">
+            <Border x:ConnectionId='24' x:Name="borderNoteView" BorderBrush="#FF0CBF7B" BorderThickness="1">
+                <ScrollViewer x:ConnectionId='25' x:Name="scrollNoteView">
+                    <StackPanel x:ConnectionId='26' x:Name="stackPanelViewNote">
                     </StackPanel>
                 </ScrollViewer>
             </Border>
         </Grid>
-        <Button x:ConnectionId='7' x:Name="addNewNoteButton"                          HorizontalAlignment="Right" 
+        <Button x:ConnectionId='8' x:Name="addNewNoteButton"                          HorizontalAlignment="Right" 
                 VerticalAlignment="Bottom" Width="60" Height="60" FocusVisualPrimaryBrush="#FF060601" 
                 Background="#FF060005" BorderBrush="#FF0CBF7B" RequestedTheme="Dark">
             <Grid>
-                <Rectangle x:ConnectionId='21' x:Name="FillRec_4" Fill="#FF0CBF7B" Width="4" Height="40" 
+                <Rectangle x:ConnectionId='22' x:Name="FillRec_4" Fill="#FF0CBF7B" Width="4" Height="40" 
                            HorizontalAlignment="Center" VerticalAlignment="Center" 
                            Margin="0, 0, 0, 0" ></Rectangle>
-                <Rectangle x:ConnectionId='22' x:Name="FillRec_5" Fill="#FF0CBF7B" Width="40" Height="4" 
+                <Rectangle x:ConnectionId='23' x:Name="FillRec_5" Fill="#FF0CBF7B" Width="40" Height="4" 
                            HorizontalAlignment="Center" VerticalAlignment="Center" 
                            Margin="0, 0, 0, 0" ></Rectangle>
             </Grid>
         </Button>
-        <SplitView x:ConnectionId='8' x:Name="opSplitView" PanePlacement="Right" HorizontalAlignment="Right"  
+        <SplitView x:ConnectionId='9' x:Name="opSplitView" PanePlacement="Right" HorizontalAlignment="Right"  
                    VerticalAlignment="Top" Margin="0,0,64,0" Height="100"  Width="200" 
                    Background="#FF010C02" BorderBrush="Black" PaneBackground="#FF010C02" 
                    OpenPaneLength="200" DisplayMode="CompactInline" Visibility="Collapsed">
             <SplitView.Pane>
                 <Grid Width="200" BorderBrush="#FF0CBF7B" Background="Black" BorderThickness="1">
-                    <TextBox x:ConnectionId='18' x:Name="textBoxAddTag" Width="200" Height="32" VerticalAlignment="Top"
+                    <TextBox x:ConnectionId='19' x:Name="textBoxAddTag" Width="200" Height="32" VerticalAlignment="Top"
                              BorderBrush="White" Margin="0, 26, 0, 0"></TextBox>
-                    <Button x:ConnectionId='19' x:Name="addTagButton"                            Width="100" Height="35" 
+                    <Button x:ConnectionId='20' x:Name="addTagButton"                            Width="100" Height="35" 
                             VerticalAlignment="Top" RequestedTheme="Dark"
                             HorizontalAlignment="Right" Margin="0, 60, 0, 0" Content="Add tag"
                             Background="#FF0CBF7B" Foreground="Black" FontSize="15"
                             BorderBrush="#FF0CBF7B" BorderThickness="1"></Button>
                     <Grid VerticalAlignment="Bottom" Height="403" Width="200">
-                        <StackPanel x:ConnectionId='20' x:Name="gridAddTag" Width="200" 
+                        <StackPanel x:ConnectionId='21' x:Name="gridAddTag" Width="200" 
                                 VerticalAlignment="Bottom"
                                    Height="0">
                         </StackPanel>
@@ -68,41 +69,41 @@
                 </Grid>
             </SplitView.Pane>
         </SplitView>
-        <Button x:ConnectionId='9' x:Name="optionButton" HorizontalAlignment="Right" VerticalAlignment="Top" 
+        <Button x:ConnectionId='10' x:Name="optionButton" HorizontalAlignment="Right" VerticalAlignment="Top" 
                 Width="60" Height="60" FocusVisualPrimaryBrush="#FF060601" Background="Black" 
                 BorderBrush="#FF0CBF7B"                        Margin="186,0,0,0">
             <Grid>
-                <Rectangle x:ConnectionId='15' x:Name="FillRec_1" Fill="#FF0CBF7B" Width="40" Height="4" 
+                <Rectangle x:ConnectionId='16' x:Name="FillRec_1" Fill="#FF0CBF7B" Width="40" Height="4" 
                            HorizontalAlignment="Right" VerticalAlignment="Center" 
                            Margin="0, -20, 3, 0" ></Rectangle>
-                <Rectangle x:ConnectionId='16' x:Name="FillRec_2" Fill="#FF0CBF7B" Width="40" Height="4" 
+                <Rectangle x:ConnectionId='17' x:Name="FillRec_2" Fill="#FF0CBF7B" Width="40" Height="4" 
                            HorizontalAlignment="Right" VerticalAlignment="Center" 
                            Margin="0, 0, 3, 0" ></Rectangle>
-                <Rectangle x:ConnectionId='17' x:Name="FillRec_3" Fill="#FF0CBF7B" Width="40" Height="4" 
+                <Rectangle x:ConnectionId='18' x:Name="FillRec_3" Fill="#FF0CBF7B" Width="40" Height="4" 
                            HorizontalAlignment="Right" VerticalAlignment="Center" 
                            Margin="0, 20, 3, 0" ></Rectangle>
             </Grid>
         </Button>
-        <SplitView x:ConnectionId='10' x:Name="splitViewDelete" Height="0" Width="150" VerticalAlignment="Bottom" HorizontalAlignment="Left" 
-                   Margin="0, 0, 0, 60" PanePlacement="Left" Background="#FF010C02" 
-                   PaneBackground="#FF010C02" OpenPaneLength="150" DisplayMode="CompactInline" Visibility="Collapsed"
-                   BorderThickness="1">
+        <SplitView x:ConnectionId='11' x:Name="splitViewDelete" Height="0" Width="150" VerticalAlignment="Bottom" 
+                   HorizontalAlignment="Left" Margin="0, 0, 0, 60" PanePlacement="Left" Background="#FF010C02" 
+                   PaneBackground="#FF010C02" OpenPaneLength="150" DisplayMode="CompactInline" 
+                   Visibility="Collapsed" BorderThickness="1">
             <SplitView.Pane>
-                <StackPanel x:ConnectionId='14' x:Name="stackPanelDeleteNote" Height="0" Width="150" VerticalAlignment="Center"
+                <StackPanel x:ConnectionId='15' x:Name="stackPanelDeleteNote" Height="0" Width="150" VerticalAlignment="Center"
                             HorizontalAlignment="Center" BorderBrush="#FF0CBF7B" BorderThickness = "1"
                                                                 >
                 </StackPanel>
             </SplitView.Pane>
         </SplitView>
-        <Button x:ConnectionId='11' x:Name="rubbishBin" RequestedTheme="Dark"                           
+        <Button x:ConnectionId='12' x:Name="rubbishBin" RequestedTheme="Dark"                           
                 Width="60" Height="60" VerticalAlignment="Bottom" Background="#FF0CBF7B" >
             <Image HorizontalAlignment="Center" VerticalAlignment="Center" 
                    Source="/Assets/60761.png" 
                    Height="50" Width="48" Stretch="Uniform"></Image>
         </Button>
-        <Button x:ConnectionId='12' x:Name="SaveButton"                          Margin="0,147,0,0" VerticalAlignment="Top" Width="45" Height="45"
-                Background="#FF0CBF7B">
-            <Image x:ConnectionId='13' x:Name="RubbishBin" HorizontalAlignment="Center" VerticalAlignment="Center"
+        <Button x:ConnectionId='13' x:Name="SaveButton"                          Margin="0,147,0,0" VerticalAlignment="Top" 
+                Width="45" Height="45" Background="#FF0CBF7B">
+            <Image x:ConnectionId='14' x:Name="RubbishBin" HorizontalAlignment="Center" VerticalAlignment="Center"
                    Source="/Assets/1486676.png" Width="35" Height="35" Stretch="Uniform"
                    Margin="0,0,0,0"></Image>
         </Button>

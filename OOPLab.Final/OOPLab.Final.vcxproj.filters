@@ -46,6 +46,7 @@
     <ClInclude Include="TagSaver.h" />
     <ClInclude Include="NoteSaver.h" />
     <ClInclude Include="StrToIntConverter.h" />
+    <ClInclude Include="KMP.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\LockScreenLogo.scale-200.png">

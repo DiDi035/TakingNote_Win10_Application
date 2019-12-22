@@ -165,6 +165,7 @@ void OOPLab_Final::MainPage::put_list_tag_to_UI(int numTotalTag) {
 		tag->Height = 35;
 		tag->Background = ref new SolidColorBrush(Windows::UI::Colors::Black);
 		tag->Opacity = 2;
+		tag->Click += ref new RoutedEventHandler(this, &OOPLab_Final::MainPage::viewAllNoteOfTag_CLick);
 		gridAddTag->Children->Append(tag);
 	}
 }
@@ -172,7 +173,21 @@ void OOPLab_Final::MainPage::put_list_tag_to_UI(int numTotalTag) {
 
 void OOPLab_Final::MainPage::searchButton_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
-
+	if (!searchBar->Text->IsEmpty()) {
+		String^ searchBarText = searchBar->Text;
+		string stringSearchBar = strToStringConverter.convert_from_String_to_string(searchBarText);
+		int stackPanelViewNoteSize = stackPanelViewNote->Children->Size;
+		for (int i = 0; i < stackPanelViewNoteSize; ++i) {
+			Grid^ gridStore = (Grid^)stackPanelViewNote->Children->GetAt(i);
+			TextBox^ textBoxStore = (TextBox^)gridStore->Children->GetAt(0);
+			String^ textBoxContent = textBoxStore->Text;
+			string stringTextBox = strToStringConverter.convert_from_String_to_string(textBoxContent);
+			bool check = KMP::search_pattern_in_string(stringSearchBar, stringTextBox);
+			if (!check) {
+				gridStore->Visibility = Windows::UI::Xaml::Visibility::Collapsed;
+			}
+		}
+	}
 }
 
 
@@ -252,6 +267,7 @@ void OOPLab_Final::MainPage::addTagButton_Click(Platform::Object^ sender, Window
 		tag->Height = 35;
 		tag->Background = ref new SolidColorBrush(Windows::UI::Colors::Black);
 		tag->Opacity = 2;
+		tag->Click += ref new RoutedEventHandler(this, &OOPLab_Final::MainPage::viewAllNoteOfTag_CLick);
 		gridAddTag->Children->Append(tag);
 	}
 }
@@ -295,3 +311,50 @@ void OOPLab_Final::MainPage::stackPanelDeleteNote_Tapped(Platform::Object^ sende
 {
 	
 }
+
+
+void OOPLab_Final::MainPage::back_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+	int stackPanelViewNoteSize = stackPanelViewNote->Children->Size;
+	for (int i = 0; i < stackPanelViewNoteSize; ++i) {
+		Grid^ gridStore = (Grid^)stackPanelViewNote->Children->GetAt(i);
+		if (gridStore->Visibility == Windows::UI::Xaml::Visibility::Collapsed) {
+			gridStore->Visibility = Windows::UI::Xaml::Visibility::Visible;
+		}
+	}
+}
+
+void OOPLab_Final::MainPage::viewAllNoteOfTag_CLick(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e) 
+{
+	Button^ currButtonTag = (Button^)sender;
+	String^ tagViewNote = currButtonTag->Content->ToString();
+	int stackPanelViewNoteSize = stackPanelViewNote->Children->Size;
+	for (int i = 0; i < stackPanelViewNoteSize; ++i) {
+		Grid^ gridStore = (Grid^)stackPanelViewNote->Children->GetAt(i);
+		int childrenSize = gridStore->Children->Size;
+		bool check = false;
+		for (int j = 0; j < childrenSize; ++j) {
+			Object^ getChild = gridStore->Children->GetAt(j);
+			String^ tmp = getChild->GetType()->ToString();
+			string temp = strToStringConverter.convert_from_String_to_string(tmp);
+			//Windows.UI.Xaml.COntrols.
+			if (getChild->GetType()->ToString() == "Windows.UI.Xaml.Controls.StackPanel") {
+				StackPanel^ tagStackPanel = (StackPanel^)getChild;
+				int tagStackPanelSize = tagStackPanel->Children->Size;
+				for (int k = 0; k < tagStackPanelSize; ++k) {
+					Button^ tagButton = (Button^)tagStackPanel->Children->GetAt(k);
+					String^ checkTagViewNote = tagButton->Content->ToString();
+					if (checkTagViewNote == tagViewNote) {
+						check = true;
+						break;
+					}
+				}
+				break;
+			}
+		}
+		if (!check) {
+			gridStore->Visibility = Windows::UI::Xaml::Visibility::Collapsed;
+		}
+	}
+}
+

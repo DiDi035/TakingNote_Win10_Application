@@ -39,5 +39,7 @@ namespace OOPLab_Final
 		void stackPanelViewNote_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e);
 		void stackPanelDeleteNote_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e);
 		void buttonDeleteTag_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void back_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void OOPLab_Final::MainPage::viewAllNoteOfTag_CLick(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	};
 }

@@ -12,9 +12,9 @@ namespace Windows {
         namespace Xaml {
             namespace Controls {
                 ref class Grid;
+                ref class Button;
                 ref class TextBox;
                 ref class TextBlock;
-                ref class Button;
                 ref class SplitView;
                 ref class Image;
                 ref class StackPanel;
@@ -55,6 +55,7 @@ namespace OOPLab_Final
     
     
         private: ::Windows::UI::Xaml::Controls::Grid^ mainScreen;
+        private: ::Windows::UI::Xaml::Controls::Button^ backButton;
         private: ::Windows::UI::Xaml::Controls::TextBox^ searchBar;
         private: ::Windows::UI::Xaml::Controls::TextBlock^ tittle;
         private: ::Windows::UI::Xaml::Controls::Button^ searchButton;
