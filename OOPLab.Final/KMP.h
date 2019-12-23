@@ -8,10 +8,11 @@ class KMP {
 public:
 	static bool search_pattern_in_string(string pattern, string bigString) {
 		int patternSize = pattern.length();
+		int bigStringSize = bigString.length();
 		int* storeArr = new int[patternSize]; //array to store matching characters
 		storeArr[0] = 0; //always intialize 1st element as 0
 		int i = 0, j = 1;
-		while (j < pattern.size()) {
+		while (j < patternSize) {
 			if (pattern[i] != pattern[j]) {
 				if (i > 0)
 					i = storeArr[i - 1];
@@ -28,7 +29,7 @@ public:
 		}
 		i = 0;
 		j = 0;
-		while (j < bigString.size() && i < pattern.size()) {
+		while (j < bigStringSize && i < patternSize) {
 			if (pattern[i] == bigString[j]) {
 				++i;
 				++j;
@@ -41,7 +42,7 @@ public:
 			}
 		}
 		delete[] storeArr;
-		if (i >= pattern.size()) return true;
+		if (i == patternSize) return true;
 		return false;
 	}
 };
