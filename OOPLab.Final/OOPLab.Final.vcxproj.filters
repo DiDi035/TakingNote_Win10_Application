@@ -88,6 +88,12 @@
     <Image Include="Assets\1486676.png">
       <Filter>Assets</Filter>
     </Image>
+    <Image Include="340.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="new+plus+icon-1320196808672578110.png">
+      <Filter>Assets</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest" />

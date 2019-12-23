@@ -54,7 +54,6 @@ void OOPLab_Final::MainPage::put_list_note_to_UI(int numTotalNote) {
 		textBoxGrid->Width = 490;
 
 		TextBox^ noteTextBox = ref new TextBox();
-		Button^ addTagToNoteButton = ref new Button();
 		noteTextBox->Name = noteId;
 		noteTextBox->Width = 490;
 		noteTextBox->Height = 200;
@@ -70,7 +69,7 @@ void OOPLab_Final::MainPage::put_list_note_to_UI(int numTotalNote) {
 
 		StackPanel^ tagStackPanel = ref new StackPanel();
 		tagStackPanel->Height = 33;
-		tagStackPanel->Width = 440; 
+		tagStackPanel->Width = 420; 
 		tagStackPanel->VerticalAlignment = Windows::UI::Xaml::VerticalAlignment::Top;
 		tagStackPanel->HorizontalAlignment = Windows::UI::Xaml::HorizontalAlignment::Right;
 		//tagStackPanel->BorderBrush = ref new SolidColorBrush(Windows::UI::Colors::Aqua);
@@ -90,10 +89,24 @@ void OOPLab_Final::MainPage::put_list_note_to_UI(int numTotalNote) {
 			tagButton->BorderThickness = 2;
 			String^ tagStringStore = stringConverter.convert_from_string_to_String(tagList[j].c_str());
 			tagButton->Content = tagStringStore;
-	
 			tagStackPanel->Children->Append(tagButton);
 		}
 
+
+
+		Button^ addMulTag = ref new Button();
+		addMulTag->Background = ref new SolidColorBrush(Windows::UI::ColorHelper::FromArgb(255, 12, 191, 123));
+		addMulTag->Height = 27;
+		addMulTag->Width = 60;
+		addMulTag->Content = "Add Tag";
+		addMulTag->Foreground = ref new SolidColorBrush(Windows::UI::Colors::Black);
+		addMulTag->FontSize = 10;
+		addMulTag->Margin = Windows::UI::Xaml::Thickness(3, 3, 0, 0);
+		addMulTag->VerticalAlignment = Windows::UI::Xaml::VerticalAlignment::Top;
+		addMulTag->HorizontalAlignment = Windows::UI::Xaml::HorizontalAlignment::Left;
+
+		textBoxGrid->Children->Append(addMulTag);
+		
 		stackPanelViewNote->Children->Append(textBoxGrid);
 
 		note = ref new Button();
@@ -230,7 +243,7 @@ void OOPLab_Final::MainPage::addNewNote_Click(Platform::Object^ sender, Windows:
 
 	StackPanel^ tagStackPanel = ref new StackPanel();
 	tagStackPanel->Height = 33;
-	tagStackPanel->Width = 440;
+	tagStackPanel->Width = 420;
 	tagStackPanel->VerticalAlignment = Windows::UI::Xaml::VerticalAlignment::Top;
 	tagStackPanel->HorizontalAlignment = Windows::UI::Xaml::HorizontalAlignment::Right;
 	//tagStackPanel->BorderBrush = ref new SolidColorBrush(Windows::UI::Colors::Aqua);

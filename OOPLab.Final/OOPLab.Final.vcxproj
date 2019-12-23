@@ -207,6 +207,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="340.png" />
     <Image Include="Assets\1483063.png" />
     <Image Include="Assets\1486676.png" />
     <Image Include="Assets\60761.png" />
@@ -220,6 +221,7 @@
     <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Image Include="Assets\StoreLogo.png" />
     <Image Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Image Include="new+plus+icon-1320196808672578110.png" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App.xaml.cpp">

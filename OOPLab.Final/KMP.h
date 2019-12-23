@@ -36,13 +36,13 @@ public:
 			}
 			else {
 				if (i > 0)
-					i = bigString[i - 1];
+					i = storeArr[i - 1];
 				else
 					j++;
 			}
 		}
 		delete[] storeArr;
-		if (i == patternSize) return true;
+		if (i >= patternSize) return true;
 		return false;
 	}
 };

@@ -11,13 +11,15 @@
     <Grid x:Name="mainScreen" BorderBrush="#FF0CBF7B" BorderThickness="1" Background="#FF010C02">
 
         <Button x:Name="backButton" Width="40" Height="40" VerticalAlignment="Top"
-                HorizontalAlignment="Left" Background="#FF0CBF7B" Click="back_Click"></Button>
+                HorizontalAlignment="Left" Background="#FF0CBF7B" Click="back_Click">
+            <Image Source="340.png"></Image>
+        </Button>
         <TextBox x:Name="searchBar" Width="400" Height="30" HorizontalAlignment="Center" 
                  VerticalAlignment="Center"
                  Margin="0,0,0,530" Background="#FF010C02" Foreground="White"
                  BorderBrush="White"
                  SelectionHighlightColor="#FFC4CFD1" BorderThickness="2" />
-        <TextBlock x:Name="tittle" HorizontalAlignment="Left" Margin="122,5,0,0" Text="Notes" 
+        <TextBlock x:Name="tittle" HorizontalAlignment="Left" Margin="160,5,0,0" Text="Notes" 
                    TextWrapping="Wrap" VerticalAlignment="Top" FontSize="60" RequestedTheme="Light" 
                    FontWeight="Bold" Foreground="#FF0CBF7B"/>
 
