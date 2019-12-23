@@ -28,6 +28,7 @@ namespace OOPLab_Final
 		stringToStringConverter stringConverter;
 		StrToIntConverter strIntCOnverter;
 		StrTostring strToStringConverter;
+		String^ tagToDelete = "";
 		void put_list_tag_to_UI(int numTotalTag);
 		void put_list_note_to_UI(int numTotalNote);
 		void searchButton_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
@@ -41,5 +42,6 @@ namespace OOPLab_Final
 		void buttonDeleteTag_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 		void back_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 		void OOPLab_Final::MainPage::viewAllNoteOfTag_CLick(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void DeleteTag_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	};
 }

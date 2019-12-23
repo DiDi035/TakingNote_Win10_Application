@@ -12,8 +12,7 @@ public:
 		storeArr[0] = 0; //always intialize 1st element as 0
 		int i = 0, j = 1;
 		while (j < pattern.size()) {
-			if (pattern[i] != pattern[j])
-			{
+			if (pattern[i] != pattern[j]) {
 				if (i > 0)
 					i = storeArr[i - 1];
 				else {

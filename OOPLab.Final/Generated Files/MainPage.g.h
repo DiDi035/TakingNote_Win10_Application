@@ -73,6 +73,7 @@ namespace OOPLab_Final
         private: ::Windows::UI::Xaml::Shapes::Rectangle^ FillRec_3;
         private: ::Windows::UI::Xaml::Controls::TextBox^ textBoxAddTag;
         private: ::Windows::UI::Xaml::Controls::Button^ addTagButton;
+        private: ::Windows::UI::Xaml::Controls::Button^ DeleteTagButton;
         private: ::Windows::UI::Xaml::Controls::StackPanel^ gridAddTag;
         private: ::Windows::UI::Xaml::Shapes::Rectangle^ FillRec_4;
         private: ::Windows::UI::Xaml::Shapes::Rectangle^ FillRec_5;

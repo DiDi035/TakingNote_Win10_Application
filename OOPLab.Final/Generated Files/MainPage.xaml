@@ -26,11 +26,11 @@
                 FocusVisualPrimaryBrush="#FFEDEBEB" BorderBrush="#FF0CBF7B" Foreground="Black" 
                 FontSize="15"                            ></Button>
 
-        
+
         <Grid x:ConnectionId='7' x:Name="gridNoteView" Height="510" VerticalAlignment="Bottom" Margin="0, 0, 0, 61">
-            <Border x:ConnectionId='24' x:Name="borderNoteView" BorderBrush="#FF0CBF7B" BorderThickness="1">
-                <ScrollViewer x:ConnectionId='25' x:Name="scrollNoteView">
-                    <StackPanel x:ConnectionId='26' x:Name="stackPanelViewNote">
+            <Border x:ConnectionId='25' x:Name="borderNoteView" BorderBrush="#FF0CBF7B" BorderThickness="1">
+                <ScrollViewer x:ConnectionId='26' x:Name="scrollNoteView">
+                    <StackPanel x:ConnectionId='27' x:Name="stackPanelViewNote">
                     </StackPanel>
                 </ScrollViewer>
             </Border>
@@ -39,10 +39,10 @@
                 VerticalAlignment="Bottom" Width="60" Height="60" FocusVisualPrimaryBrush="#FF060601" 
                 Background="#FF060005" BorderBrush="#FF0CBF7B" RequestedTheme="Dark">
             <Grid>
-                <Rectangle x:ConnectionId='22' x:Name="FillRec_4" Fill="#FF0CBF7B" Width="4" Height="40" 
+                <Rectangle x:ConnectionId='23' x:Name="FillRec_4" Fill="#FF0CBF7B" Width="4" Height="40" 
                            HorizontalAlignment="Center" VerticalAlignment="Center" 
                            Margin="0, 0, 0, 0" ></Rectangle>
-                <Rectangle x:ConnectionId='23' x:Name="FillRec_5" Fill="#FF0CBF7B" Width="40" Height="4" 
+                <Rectangle x:ConnectionId='24' x:Name="FillRec_5" Fill="#FF0CBF7B" Width="40" Height="4" 
                            HorizontalAlignment="Center" VerticalAlignment="Center" 
                            Margin="0, 0, 0, 0" ></Rectangle>
             </Grid>
@@ -55,13 +55,18 @@
                 <Grid Width="200" BorderBrush="#FF0CBF7B" Background="Black" BorderThickness="1">
                     <TextBox x:ConnectionId='19' x:Name="textBoxAddTag" Width="200" Height="32" VerticalAlignment="Top"
                              BorderBrush="White" Margin="0, 26, 0, 0"></TextBox>
-                    <Button x:ConnectionId='20' x:Name="addTagButton"                            Width="100" Height="35" 
+                    <Button x:ConnectionId='20' x:Name="addTagButton"                            Width="98" Height="32" 
                             VerticalAlignment="Top" RequestedTheme="Dark"
                             HorizontalAlignment="Right" Margin="0, 60, 0, 0" Content="Add tag"
                             Background="#FF0CBF7B" Foreground="Black" FontSize="15"
                             BorderBrush="#FF0CBF7B" BorderThickness="1"></Button>
+                    <Button x:ConnectionId='21' x:Name="DeleteTagButton"                         Width="98" Height="32"
+                            VerticalAlignment="Top" HorizontalAlignment="Left" 
+                            RequestedTheme="Dark" Margin="0, 60, 0, 0" Content="Delete"
+                            Background="#FF0CBF7B" Foreground="Black" FontSize="15"
+                            BorderBrush="#FF0CBF7B" BorderThickness="1"></Button>
                     <Grid VerticalAlignment="Bottom" Height="403" Width="200">
-                        <StackPanel x:ConnectionId='21' x:Name="gridAddTag" Width="200" 
+                        <StackPanel x:ConnectionId='22' x:Name="gridAddTag" Width="200" 
                                 VerticalAlignment="Bottom"
                                    Height="0">
                         </StackPanel>

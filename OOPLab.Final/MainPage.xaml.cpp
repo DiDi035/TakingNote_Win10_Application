@@ -85,7 +85,9 @@ void OOPLab_Final::MainPage::put_list_note_to_UI(int numTotalNote) {
 			Button^ tagButton = ref new Button();
 			tagButton->Height = 33;
 			tagButton->Width = tagList[j].length()*9;
-			tagButton->BorderBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
+			tagButton->BorderBrush = ref new SolidColorBrush(Windows::UI::ColorHelper::FromArgb(255, 12, 191, 123));
+			tagButton->Background = ref new SolidColorBrush(Windows::UI::Colors::Black);
+			tagButton->BorderThickness = 2;
 			String^ tagStringStore = stringConverter.convert_from_string_to_String(tagList[j].c_str());
 			tagButton->Content = tagStringStore;
 	
@@ -315,11 +317,20 @@ void OOPLab_Final::MainPage::stackPanelDeleteNote_Tapped(Platform::Object^ sende
 
 void OOPLab_Final::MainPage::back_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
+	tagToDelete = "";
 	int stackPanelViewNoteSize = stackPanelViewNote->Children->Size;
 	for (int i = 0; i < stackPanelViewNoteSize; ++i) {
 		Grid^ gridStore = (Grid^)stackPanelViewNote->Children->GetAt(i);
 		if (gridStore->Visibility == Windows::UI::Xaml::Visibility::Collapsed) {
 			gridStore->Visibility = Windows::UI::Xaml::Visibility::Visible;
+		}
+		StackPanel^ stackPanel = (StackPanel^)gridStore->Children->GetAt(1);
+		int tagButtonLSize = stackPanel->Children->Size;
+		for (int j = 0; j < tagButtonLSize; ++j) {
+			Button^ tagButton = (Button^)stackPanel->Children->GetAt(j);
+			tagButton->BorderBrush = ref new SolidColorBrush(Windows::UI::ColorHelper::FromArgb(255, 12, 191, 123));
+			tagButton->Background = ref new SolidColorBrush(Windows::UI::Colors::Black);
+			tagButton->Foreground = ref new SolidColorBrush(Windows::UI::Colors::White);
 		}
 	}
 }
@@ -328,6 +339,7 @@ void OOPLab_Final::MainPage::viewAllNoteOfTag_CLick(Platform::Object^ sender, Wi
 {
 	Button^ currButtonTag = (Button^)sender;
 	String^ tagViewNote = currButtonTag->Content->ToString();
+	tagToDelete = tagViewNote;
 	int stackPanelViewNoteSize = stackPanelViewNote->Children->Size;
 	for (int i = 0; i < stackPanelViewNoteSize; ++i) {
 		Grid^ gridStore = (Grid^)stackPanelViewNote->Children->GetAt(i);
@@ -345,6 +357,8 @@ void OOPLab_Final::MainPage::viewAllNoteOfTag_CLick(Platform::Object^ sender, Wi
 					Button^ tagButton = (Button^)tagStackPanel->Children->GetAt(k);
 					String^ checkTagViewNote = tagButton->Content->ToString();
 					if (checkTagViewNote == tagViewNote) {
+						tagButton->Background = ref new SolidColorBrush(Windows::UI::ColorHelper::FromArgb(255, 12, 191, 123));
+						tagButton->Foreground = ref new SolidColorBrush(Windows::UI::Colors::Black);
 						check = true;
 						break;
 					}
@@ -358,3 +372,41 @@ void OOPLab_Final::MainPage::viewAllNoteOfTag_CLick(Platform::Object^ sender, Wi
 	}
 }
 
+
+
+
+
+void OOPLab_Final::MainPage::DeleteTag_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+	int stackPanelViewNoteSize = stackPanelViewNote->Children->Size;
+	for (int i = 0; i < stackPanelViewNoteSize; ++i) {
+		Grid^ gridStore = (Grid^)stackPanelViewNote->Children->GetAt(i);
+		StackPanel^ stackPanel = (StackPanel^)gridStore->Children->GetAt(1);
+		int tagButtonLSize = stackPanel->Children->Size;
+		for (int j = 0; j < tagButtonLSize; ++j) {
+			Button^ tagButton = (Button^)stackPanel->Children->GetAt(j);
+			if (tagButton->Content->ToString() == tagToDelete) {
+				stackPanel->Children->RemoveAt(j);
+				break;
+			}
+		}
+	}
+	stackPanelViewNoteSize = gridAddTag->Children->Size;
+	for (int i = 0; i < stackPanelViewNoteSize; ++i) {
+		Button^ tagButton = (Button^)gridAddTag->Children->GetAt(i);
+		if (tagButton->Content->ToString() == tagToDelete) {
+			gridAddTag->Children->RemoveAt(i);
+			gridAddTag->Height -= 35;
+			opSplitView->Height -= 35;
+			break;
+		}
+	}
+	string stringStore = strToStringConverter.convert_from_String_to_string(tagToDelete);
+	for (int i = 0; i < numTotalTag; ++i) {
+		if (listTag[i].get_text() == stringStore) {
+			listTag.erase(listTag.begin() + i);
+			numTotalTag--;
+			break;
+		}
+	}
+}
