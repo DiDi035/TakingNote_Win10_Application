@@ -324,6 +324,26 @@ void OOPLab_Final::MainPage::addTagButton_Click(Platform::Object^ sender, Window
 		tag->Opacity = 2;
 		tag->Click += ref new RoutedEventHandler(this, &OOPLab_Final::MainPage::viewAllNoteOfTag_CLick);
 		gridAddTag->Children->Append(tag);
+
+		int stackPanelViewNoteSize = stackPanelViewNote->Children->Size;
+		for (int i = 0; i < stackPanelViewNoteSize; ++i) {
+			Button^ tag = ref new Button();
+			tag->Content = textBoxAddTag->Text;
+			tag->Width = 150;
+			tag->Height = 35;
+			tag->Background = ref new SolidColorBrush(Windows::UI::Colors::Black);
+			tag->Foreground = ref new SolidColorBrush(Windows::UI::Colors::White);
+			tag->Opacity = 2;
+			tag->Click += ref new RoutedEventHandler(this, &OOPLab_Final::MainPage::addMulTagToNote_Click);
+
+			Grid^ gridViewNote = (Grid^)stackPanelViewNote->Children->GetAt(i);
+			SplitView^ splitViewNote = (SplitView^)gridViewNote->Children->GetAt(3);
+			StackPanel^ tagStackPanel = (StackPanel^)splitViewNote->Pane;
+			splitViewNote->Height += 35;
+			tagStackPanel->Height += 35;
+
+			tagStackPanel->Children->Append(tag);
+		}
 	}
 }
 
@@ -430,6 +450,20 @@ void OOPLab_Final::MainPage::DeleteTag_Click(Platform::Object^ sender, Windows::
 	int stackPanelViewNoteSize = stackPanelViewNote->Children->Size;
 	for (int i = 0; i < stackPanelViewNoteSize; ++i) {
 		Grid^ gridStore = (Grid^)stackPanelViewNote->Children->GetAt(i);
+
+		SplitView^ splitViewNote = (SplitView^)gridStore->Children->GetAt(3);
+		StackPanel^ tagStackPanel = (StackPanel^)splitViewNote->Pane;
+		int size = tagStackPanel->Children->Size;
+		for (int j = 0; j < size; ++j) {
+			Button^ tag = (Button^)tagStackPanel->Children->GetAt(j);
+			if (tag->Content->ToString() == tagToDelete) {
+				tagStackPanel->Children->RemoveAt(j);
+				splitViewNote->Height -= 35;
+				tagStackPanel->Height -= 35;
+				break;
+			}
+		}
+
 		StackPanel^ stackPanel = (StackPanel^)gridStore->Children->GetAt(1);
 		int tagButtonLSize = stackPanel->Children->Size;
 		for (int j = 0; j < tagButtonLSize; ++j) {
@@ -480,7 +514,7 @@ void OOPLab_Final::MainPage::addMulTagToNote_Click(Platform::Object^ sender, Win
 			string stringStore = strToStringConverter.convert_from_String_to_string(contentCurButton);
 			for (int j = 0; j < numTotalTag; ++j) {
 				if (listTag[j].get_text() == stringStore) {
-					listTag[j].add_note(i);
+					listTag[j].add_note(i+1);
 					break;
 				}
 			}
