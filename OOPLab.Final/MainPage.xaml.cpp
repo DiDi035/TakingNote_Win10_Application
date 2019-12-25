@@ -292,6 +292,61 @@ void OOPLab_Final::MainPage::addNewNote_Click(Platform::Object^ sender, Windows:
 	tagStackPanel->Margin = Windows::UI::Xaml::Thickness(0, 15, 0, 0);
 	textBoxGrid->Children->Append(tagStackPanel);
 
+	Button^ addMulTag = ref new Button();
+	addMulTag->Background = ref new SolidColorBrush(Windows::UI::ColorHelper::FromArgb(255, 12, 191, 123));
+	addMulTag->Height = 27;
+	addMulTag->Width = 60;
+	addMulTag->Content = "Add Tag";
+	addMulTag->Foreground = ref new SolidColorBrush(Windows::UI::Colors::Black);
+	addMulTag->FontSize = 10;
+	addMulTag->Margin = Windows::UI::Xaml::Thickness(3, 3, 0, 0);
+	addMulTag->VerticalAlignment = Windows::UI::Xaml::VerticalAlignment::Top;
+	addMulTag->HorizontalAlignment = Windows::UI::Xaml::HorizontalAlignment::Left;
+	addMulTag->Click += ref new RoutedEventHandler(this, &OOPLab_Final::MainPage::openAddMulTagPane_Click);
+
+	textBoxGrid->Children->Append(addMulTag);
+
+	SplitView^ addTagPane = ref new SplitView();
+
+	StackPanel^ addMulTagStack = ref new StackPanel();
+	addTagPane->Pane = addMulTagStack;
+	addMulTagStack->Height = 0;
+	addMulTagStack->Width = 150;
+	addMulTagStack->Background = ref new SolidColorBrush(Windows::UI::Colors::Black);
+	addMulTagStack->VerticalAlignment = Windows::UI::Xaml::VerticalAlignment::Center;
+	addMulTagStack->HorizontalAlignment = Windows::UI::Xaml::HorizontalAlignment::Center;
+	addMulTagStack->BorderBrush = ref new SolidColorBrush(Windows::UI::ColorHelper::FromArgb(255, 12, 191, 123));
+	addMulTagStack->BorderThickness = 2;
+
+	addTagPane->Width = 150;
+	addTagPane->Height = 0;
+	addTagPane->Background = ref new SolidColorBrush(Windows::UI::Colors::Black);
+	addTagPane->DisplayMode = SplitViewDisplayMode::CompactInline;
+	addTagPane->PaneBackground = ref new SolidColorBrush(Windows::UI::Colors::Black);
+	addTagPane->VerticalAlignment = Windows::UI::Xaml::VerticalAlignment::Top;
+	addTagPane->HorizontalAlignment = Windows::UI::Xaml::HorizontalAlignment::Left;
+	addTagPane->Margin = Windows::UI::Xaml::Thickness(68, 0, 0, 0);
+	addTagPane->Visibility = Windows::UI::Xaml::Visibility::Collapsed;
+	addTagPane->OpenPaneLength = 150;
+
+	addTagPane->Height += 35 * numTotalTag;
+	addMulTagStack->Height += 35 * numTotalTag;
+
+	for (int j = 0; j < numTotalTag; ++j) {
+		String^ tagContent = stringConverter.convert_from_string_to_String(listTag[j].get_text());
+		Button^ tag = ref new Button();
+		tag->Content = tagContent;
+		tag->Width = 150;
+		tag->Height = 35;
+		tag->Background = ref new SolidColorBrush(Windows::UI::Colors::Black);
+		tag->Foreground = ref new SolidColorBrush(Windows::UI::Colors::White);
+		tag->Opacity = 2;
+		tag->Click += ref new RoutedEventHandler(this, &OOPLab_Final::MainPage::addMulTagToNote_Click);
+		addMulTagStack->Children->Append(tag);
+	}
+
+	textBoxGrid->Children->Append(addTagPane);
+
 	stackPanelViewNote->Children->Append(textBoxGrid);
 
 	stackPanelDeleteNote->Height += 35;
