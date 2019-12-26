@@ -171,6 +171,17 @@ void OOPLab_Final::MainPage::buttonDeleteTag_Click(Platform::Object^ sender, Win
 		if (temp == buttonContent) {
 			stackPanelDeleteNote->Children->RemoveAt(i - 1);
 			stackPanelViewNote->Children->RemoveAt(i - 1);
+			for (int j = 0; j < numTotalTag; ++j) {
+				vector<int> noteOfThisTag = listTag[j].get_list_note();
+				for (int k = 0; k < noteOfThisTag.size(); ++k) {
+					if (noteOfThisTag[k] == i) {
+						noteOfThisTag.erase(noteOfThisTag.begin() + k);
+						break;
+					}
+				}
+				listTag[j].set_new_list_note(noteOfThisTag);
+				noteOfThisTag.clear();
+			}
 			listNote.erase(listNote.begin() + (i - 1));
 			numTotalNote--;
 			stackPanelDeleteNote->Height -= 35;
@@ -436,12 +447,10 @@ void OOPLab_Final::MainPage::stackPanelViewNote_Tapped(Platform::Object^ sender,
 
 }
 
-
 void OOPLab_Final::MainPage::stackPanelDeleteNote_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
 	
 }
-
 
 void OOPLab_Final::MainPage::back_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {

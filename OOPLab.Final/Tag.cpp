@@ -30,3 +30,8 @@ bool Tags::delete_note(int id) {
 	}
 	return false;
 }
+
+void Tags::set_new_list_note(vector<int> newListNote) {
+	_idNote.clear();
+	_idNote = newListNote;
+}

@@ -16,6 +16,7 @@ public:
 	//setter
 	void set_text(string data);
 	void add_note(int id);
+	void set_new_list_note(vector<int> newListNote);
 	//getter
 	string get_text();
 	vector<int> get_list_note();
