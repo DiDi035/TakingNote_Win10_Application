@@ -559,6 +559,7 @@ void OOPLab_Final::MainPage::addMulTagToNote_Click(Platform::Object^ sender, Win
 			tagButton->Background = ref new SolidColorBrush(Windows::UI::Colors::Black);
 			tagButton->BorderThickness = 2;
 			tagButton->Content = contentCurButton;
+			tagButton->Click += ref new RoutedEventHandler(this, &OOPLab_Final::MainPage::specificTag_Click);
 			StackPanel^ tagStackPanel = (StackPanel^)currGridNote->Children->GetAt(1);
 			tagStackPanel->Children->Append(tagButton);
 			string stringStore = strToStringConverter.convert_from_String_to_string(contentCurButton);
