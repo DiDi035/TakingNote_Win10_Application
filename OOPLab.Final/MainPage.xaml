@@ -9,7 +9,11 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid x:Name="mainScreen" BorderBrush="#FF0CBF7B" BorderThickness="1" Background="#FF010C02">
-
+        <Button x:Name="deleteSpecificTag" Height="45" Width="45" VerticalAlignment="Top" 
+                HorizontalAlignment="Left" Margin="48, 148, 0, 0" Background="#FF0CBF7B"
+                Click="deleteSpecificTag_Click">
+            <Image Source="cross-small-01-512.png"></Image>
+        </Button>
         <Button x:Name="backButton" Width="40" Height="40" VerticalAlignment="Top"
                 HorizontalAlignment="Left" Background="#FF0CBF7B" Click="back_Click">
             <Image Source="340.png"></Image>

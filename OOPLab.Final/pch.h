@@ -9,10 +9,8 @@
 
 #include "App.xaml.h"
 #include"Converter.h"
-#include"DataLoader.h"
 #include"FileWorker.h"
 #include"FileWorkerTxt.h"
-#include"MainBoard.h"
 #include"Note.h"
 #include"NoteFactory.h"
 #include"NoteLoader.h"

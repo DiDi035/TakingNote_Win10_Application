@@ -168,12 +168,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Converter.h" />
-    <ClInclude Include="DataLoader.h" />
     <ClInclude Include="FileWorker.h" />
     <ClInclude Include="FileWorkerTxt.h" />
     <ClInclude Include="Helper.h" />
     <ClInclude Include="KMP.h" />
-    <ClInclude Include="MainBoard.h" />
     <ClInclude Include="Note.h" />
     <ClInclude Include="NoteFactory.h" />
     <ClInclude Include="NoteLoader.h" />
@@ -208,19 +206,17 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="340.png" />
-    <Image Include="Assets\1483063.png" />
     <Image Include="Assets\1486676.png" />
     <Image Include="Assets\60761.png" />
-    <Image Include="Assets\62314.png" />
     <Image Include="Assets\DeleteDustbin-512.png" />
     <Image Include="Assets\LockScreenLogo.scale-200.png" />
-    <Image Include="Assets\rubbish-bins-waste-paper-baskets-recycling-computer-icons-waste-collection-garbage-bin-modeling.jpg" />
     <Image Include="Assets\SplashScreen.scale-200.png" />
     <Image Include="Assets\Square150x150Logo.scale-200.png" />
     <Image Include="Assets\Square44x44Logo.scale-200.png" />
     <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Image Include="Assets\StoreLogo.png" />
     <Image Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Image Include="cross-small-01-512.png" />
     <Image Include="new+plus+icon-1320196808672578110.png" />
   </ItemGroup>
   <ItemGroup>
@@ -229,7 +225,6 @@
     </ClCompile>
     <ClCompile Include="FileWorkerTxt.cpp" />
     <ClCompile Include="Helper.cpp" />
-    <ClCompile Include="MainBoard.cpp" />
     <ClCompile Include="MainPage.xaml.cpp">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </ClCompile>

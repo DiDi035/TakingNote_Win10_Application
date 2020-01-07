@@ -27,6 +27,7 @@ using namespace std;
 MainPage::MainPage()
 {
 	InitializeComponent();
+	deleteSpecificTagIsClick = false;
 	NoteLoader noteLoader;
 	listNote = noteLoader.load_note();
 	numTotalNote = noteLoader.get_num_total_note();
@@ -57,13 +58,11 @@ void OOPLab_Final::MainPage::put_list_note_to_UI(int numTotalNote) {
 		noteTextBox->Name = noteId;
 		noteTextBox->Width = 490;
 		noteTextBox->Height = 200;
-		noteTextBox->Header = "No." + noteId; // +"                         Tag: " + tagContent;
+		noteTextBox->Header = "No." + noteId;
 		noteTextBox->TextWrapping = TextWrapping::Wrap;
 		noteTextBox->AcceptsReturn = true;
 		noteTextBox->Text = noteContent;
 		noteTextBox->RequestedTheme = Windows::UI::Xaml::ElementTheme::Dark;
-		//noteTextBox->BorderBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
-		//noteTextBox->BorderThickness = 2;
 		noteTextBox->VerticalAlignment = Windows::UI::Xaml::VerticalAlignment::Bottom;
 		textBoxGrid->Children->Append(noteTextBox);
 
@@ -72,8 +71,6 @@ void OOPLab_Final::MainPage::put_list_note_to_UI(int numTotalNote) {
 		tagStackPanel->Width = 420; 
 		tagStackPanel->VerticalAlignment = Windows::UI::Xaml::VerticalAlignment::Top;
 		tagStackPanel->HorizontalAlignment = Windows::UI::Xaml::HorizontalAlignment::Right;
-		//tagStackPanel->BorderBrush = ref new SolidColorBrush(Windows::UI::Colors::Aqua);
-		//tagStackPanel->BorderThickness = 1;
 		tagStackPanel->Orientation = Windows::UI::Xaml::Controls::Orientation::Horizontal;
 		tagStackPanel->Margin = Windows::UI::Xaml::Thickness(0,15,0,0);
 		textBoxGrid->Children->Append(tagStackPanel);
@@ -89,6 +86,7 @@ void OOPLab_Final::MainPage::put_list_note_to_UI(int numTotalNote) {
 			tagButton->BorderThickness = 2;
 			String^ tagStringStore = stringConverter.convert_from_string_to_String(tagList[j].c_str());
 			tagButton->Content = tagStringStore;
+			tagButton->Click += ref new RoutedEventHandler(this, &OOPLab_Final::MainPage::specificTag_Click);
 			tagStackPanel->Children->Append(tagButton);
 		}
 
@@ -441,17 +439,6 @@ void OOPLab_Final::MainPage::deleteNote_Click(Platform::Object^ sender, Windows:
 	}
 }
 
-
-void OOPLab_Final::MainPage::stackPanelViewNote_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
-{
-
-}
-
-void OOPLab_Final::MainPage::stackPanelDeleteNote_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
-{
-	
-}
-
 void OOPLab_Final::MainPage::back_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
 	tagToDelete = "";
@@ -509,8 +496,7 @@ void OOPLab_Final::MainPage::viewAllNoteOfTag_CLick(Platform::Object^ sender, Wi
 	}
 }
 
-void OOPLab_Final::MainPage::DeleteTag_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
-{
+void OOPLab_Final::MainPage::DeleteTag_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e) {
 	int stackPanelViewNoteSize = stackPanelViewNote->Children->Size;
 	for (int i = 0; i < stackPanelViewNoteSize; ++i) {
 		Grid^ gridStore = (Grid^)stackPanelViewNote->Children->GetAt(i);
@@ -601,4 +587,61 @@ void OOPLab_Final::MainPage::openAddMulTagPane_Click(Platform::Object^ sender, W
 		currSplitView->IsPaneOpen = !currSplitView->IsPaneOpen;
 		currSplitView->Visibility = Windows::UI::Xaml::Visibility::Collapsed;
 	}
+}
+
+void OOPLab_Final::MainPage::deleteSpecificTag_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e) {
+	if (!deleteSpecificTagIsClick) {
+		deleteSpecificTagIsClick = true;
+		deleteSpecificTag->Background = ref new SolidColorBrush(Windows::UI::Colors::Gray);
+	}
+	else {
+		deleteSpecificTagIsClick = false;
+		deleteSpecificTag->Background = ref new SolidColorBrush(Windows::UI::ColorHelper::FromArgb(255, 12, 191, 123));
+	}
+}
+
+void OOPLab_Final::MainPage::specificTag_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e) {
+	if (deleteSpecificTagIsClick) {
+		Button^ currButton = (Button^)sender;
+		StackPanel^ tagStackPanel = (StackPanel^)VisualTreeHelper::GetParent(currButton);
+		String^ currButtonContent = currButton->Content->ToString();
+		string stringStore = strToStringConverter.convert_from_String_to_string(currButtonContent);
+		int tagStackPanelSize = tagStackPanel->Children->Size;
+		for (int i = 0; i < tagStackPanelSize; ++i) {
+			Button^ iButton = (Button^)tagStackPanel->Children->GetAt(i);
+			if (iButton->Content->ToString() == currButtonContent) {
+				tagStackPanel->Children->RemoveAt(i);
+				Grid^ checkGrid = (Grid^)VisualTreeHelper::GetParent(tagStackPanel);
+				int StackPanelViewNoteSize = stackPanelViewNote->Children->Size;
+				for (int j = 0; j < StackPanelViewNoteSize; ++j) {
+					Grid^ currGrid = (Grid^)stackPanelViewNote->Children->GetAt(j);
+					if (currGrid == checkGrid) {
+						for (int m = 0; m < numTotalTag; ++m) {
+							if (listTag[m].get_text() == stringStore) {
+								vector<int> noteList = listTag[m].get_list_note();
+								for (int k = 0; k < noteList.size(); ++k) {
+									if (noteList[k] == j + 1) {
+										noteList.erase(noteList.begin() + k);
+										listTag[m].set_new_list_note(noteList);
+										break;
+									}
+								}
+								break;
+							}
+						}
+						break;
+					}
+				}
+				break;
+			}
+		}
+	}
+}
+
+void OOPLab_Final::MainPage::stackPanelViewNote_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+
+}
+
+void OOPLab_Final::MainPage::stackPanelDeleteNote_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+
 }

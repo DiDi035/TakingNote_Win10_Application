@@ -16,7 +16,6 @@
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="FileWorkerTxt.cpp" />
     <ClCompile Include="Helper.cpp" />
-    <ClCompile Include="MainBoard.cpp" />
     <ClCompile Include="Note.cpp" />
     <ClCompile Include="NoteLoader.cpp" />
     <ClCompile Include="stringToStringConverter.cpp" />
@@ -30,11 +29,9 @@
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="Converter.h" />
-    <ClInclude Include="DataLoader.h" />
     <ClInclude Include="FileWorker.h" />
     <ClInclude Include="FileWorkerTxt.h" />
     <ClInclude Include="Helper.h" />
-    <ClInclude Include="MainBoard.h" />
     <ClInclude Include="Note.h" />
     <ClInclude Include="NoteFactory.h" />
     <ClInclude Include="NoteLoader.h" />
@@ -73,16 +70,7 @@
     <Image Include="Assets\DeleteDustbin-512.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\1483063.png">
-      <Filter>Assets</Filter>
-    </Image>
-    <Image Include="Assets\rubbish-bins-waste-paper-baskets-recycling-computer-icons-waste-collection-garbage-bin-modeling.jpg">
-      <Filter>Assets</Filter>
-    </Image>
     <Image Include="Assets\60761.png">
-      <Filter>Assets</Filter>
-    </Image>
-    <Image Include="Assets\62314.png">
       <Filter>Assets</Filter>
     </Image>
     <Image Include="Assets\1486676.png">
@@ -92,6 +80,9 @@
       <Filter>Assets</Filter>
     </Image>
     <Image Include="new+plus+icon-1320196808672578110.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="cross-small-01-512.png">
       <Filter>Assets</Filter>
     </Image>
   </ItemGroup>

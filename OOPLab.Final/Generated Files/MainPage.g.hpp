@@ -37,143 +37,150 @@ void ::OOPLab_Final::MainPage::Connect(int __connectionId, ::Platform::Object^ _
         break;
     case 3:
         {
+            this->deleteSpecificTag = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
+            (safe_cast<::Windows::UI::Xaml::Controls::Button^>(this->deleteSpecificTag))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::OOPLab_Final::MainPage::*)
+                (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&MainPage::deleteSpecificTag_Click);
+        }
+        break;
+    case 4:
+        {
             this->backButton = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
             (safe_cast<::Windows::UI::Xaml::Controls::Button^>(this->backButton))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::OOPLab_Final::MainPage::*)
                 (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&MainPage::back_Click);
         }
         break;
-    case 4:
+    case 5:
         {
             this->searchBar = safe_cast<::Windows::UI::Xaml::Controls::TextBox^>(__target);
         }
         break;
-    case 5:
+    case 6:
         {
             this->tittle = safe_cast<::Windows::UI::Xaml::Controls::TextBlock^>(__target);
         }
         break;
-    case 6:
+    case 7:
         {
             this->searchButton = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
             (safe_cast<::Windows::UI::Xaml::Controls::Button^>(this->searchButton))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::OOPLab_Final::MainPage::*)
                 (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&MainPage::searchButton_Click);
         }
         break;
-    case 7:
+    case 8:
         {
             this->gridNoteView = safe_cast<::Windows::UI::Xaml::Controls::Grid^>(__target);
         }
         break;
-    case 8:
+    case 9:
         {
             this->addNewNoteButton = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
             (safe_cast<::Windows::UI::Xaml::Controls::Button^>(this->addNewNoteButton))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::OOPLab_Final::MainPage::*)
                 (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&MainPage::addNewNote_Click);
         }
         break;
-    case 9:
+    case 10:
         {
             this->opSplitView = safe_cast<::Windows::UI::Xaml::Controls::SplitView^>(__target);
         }
         break;
-    case 10:
+    case 11:
         {
             this->optionButton = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
             (safe_cast<::Windows::UI::Xaml::Controls::Button^>(this->optionButton))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::OOPLab_Final::MainPage::*)
                 (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&MainPage::opButton_Click);
         }
         break;
-    case 11:
+    case 12:
         {
             this->splitViewDelete = safe_cast<::Windows::UI::Xaml::Controls::SplitView^>(__target);
         }
         break;
-    case 12:
+    case 13:
         {
             this->rubbishBin = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
             (safe_cast<::Windows::UI::Xaml::Controls::Button^>(this->rubbishBin))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::OOPLab_Final::MainPage::*)
                 (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&MainPage::deleteNote_Click);
         }
         break;
-    case 13:
+    case 14:
         {
             this->SaveButton = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
             (safe_cast<::Windows::UI::Xaml::Controls::Button^>(this->SaveButton))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::OOPLab_Final::MainPage::*)
                 (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&MainPage::saveButton_Click);
         }
         break;
-    case 14:
+    case 15:
         {
             this->RubbishBin = safe_cast<::Windows::UI::Xaml::Controls::Image^>(__target);
         }
         break;
-    case 15:
+    case 16:
         {
             this->stackPanelDeleteNote = safe_cast<::Windows::UI::Xaml::Controls::StackPanel^>(__target);
             (safe_cast<::Windows::UI::Xaml::Controls::StackPanel^>(this->stackPanelDeleteNote))->Tapped += ref new ::Windows::UI::Xaml::Input::TappedEventHandler(this, (void (::OOPLab_Final::MainPage::*)
                 (::Platform::Object^, ::Windows::UI::Xaml::Input::TappedRoutedEventArgs^))&MainPage::stackPanelDeleteNote_Tapped);
         }
         break;
-    case 16:
+    case 17:
         {
             this->FillRec_1 = safe_cast<::Windows::UI::Xaml::Shapes::Rectangle^>(__target);
         }
         break;
-    case 17:
+    case 18:
         {
             this->FillRec_2 = safe_cast<::Windows::UI::Xaml::Shapes::Rectangle^>(__target);
         }
         break;
-    case 18:
+    case 19:
         {
             this->FillRec_3 = safe_cast<::Windows::UI::Xaml::Shapes::Rectangle^>(__target);
         }
         break;
-    case 19:
+    case 20:
         {
             this->textBoxAddTag = safe_cast<::Windows::UI::Xaml::Controls::TextBox^>(__target);
         }
         break;
-    case 20:
+    case 21:
         {
             this->addTagButton = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
             (safe_cast<::Windows::UI::Xaml::Controls::Button^>(this->addTagButton))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::OOPLab_Final::MainPage::*)
                 (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&MainPage::addTagButton_Click);
         }
         break;
-    case 21:
+    case 22:
         {
             this->DeleteTagButton = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
             (safe_cast<::Windows::UI::Xaml::Controls::Button^>(this->DeleteTagButton))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::OOPLab_Final::MainPage::*)
                 (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&MainPage::DeleteTag_Click);
         }
         break;
-    case 22:
+    case 23:
         {
             this->gridAddTag = safe_cast<::Windows::UI::Xaml::Controls::StackPanel^>(__target);
         }
         break;
-    case 23:
+    case 24:
         {
             this->FillRec_4 = safe_cast<::Windows::UI::Xaml::Shapes::Rectangle^>(__target);
         }
         break;
-    case 24:
+    case 25:
         {
             this->FillRec_5 = safe_cast<::Windows::UI::Xaml::Shapes::Rectangle^>(__target);
         }
         break;
-    case 25:
+    case 26:
         {
             this->borderNoteView = safe_cast<::Windows::UI::Xaml::Controls::Border^>(__target);
         }
         break;
-    case 26:
+    case 27:
         {
             this->scrollNoteView = safe_cast<::Windows::UI::Xaml::Controls::ScrollViewer^>(__target);
         }
         break;
-    case 27:
+    case 28:
         {
             this->stackPanelViewNote = safe_cast<::Windows::UI::Xaml::Controls::StackPanel^>(__target);
         }

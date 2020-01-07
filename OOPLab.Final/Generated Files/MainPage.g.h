@@ -55,6 +55,7 @@ namespace OOPLab_Final
     
     
         private: ::Windows::UI::Xaml::Controls::Grid^ mainScreen;
+        private: ::Windows::UI::Xaml::Controls::Button^ deleteSpecificTag;
         private: ::Windows::UI::Xaml::Controls::Button^ backButton;
         private: ::Windows::UI::Xaml::Controls::TextBox^ searchBar;
         private: ::Windows::UI::Xaml::Controls::TextBlock^ tittle;

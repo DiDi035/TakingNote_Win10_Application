@@ -6,7 +6,6 @@
 #pragma once
 
 #include "MainPage.g.h"
-#include "MainBoard.h"
 
 namespace OOPLab_Final
 {
@@ -19,6 +18,7 @@ namespace OOPLab_Final
 	public:
 		MainPage();
 	private:
+		bool deleteSpecificTagIsClick;
 		vector<Note> listNote;
 		vector<Tags> listTag;
 		int numTotalNote;
@@ -46,5 +46,7 @@ namespace OOPLab_Final
 		void DeleteTag_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 		void addMulTagToNote_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 		void openAddMulTagPane_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void deleteSpecificTag_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void specificTag_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	};
 }

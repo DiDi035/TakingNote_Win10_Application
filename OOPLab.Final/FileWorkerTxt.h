@@ -1,5 +1,6 @@
 #pragma once
 
+#include"Note.h"
 #include"TagFactory.h"
 #include"FileWorker.h"
 #include"Tag.h"

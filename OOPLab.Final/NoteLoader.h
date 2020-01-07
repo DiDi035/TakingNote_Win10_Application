@@ -1,6 +1,5 @@
 #pragma once
 
-#include"DataLoader.h"
 #include"NoteFactory.h"
 #include"FileWorkerTxt.h"
 #include<sstream>

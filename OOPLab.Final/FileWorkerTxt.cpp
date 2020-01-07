@@ -3,7 +3,6 @@
 
 string FileWorkerTxt::read_note_from_file(string fileName) {
 	string contentFromFile, tmp;
-	ifstream fin;
 	fin.open(_dataBaseFolder + "\\" + fileName);
 	if (fin) {
 		while (!fin.eof()) {
@@ -20,7 +19,6 @@ string FileWorkerTxt::read_note_from_file(string fileName) {
 
 int FileWorkerTxt::read_number_of_note_from_file(string fileName) {
 	int totalNote;
-	ifstream fin;
 	fin.open(_dataBaseFolder + "\\" + fileName);
 	if (fin) {
 		fin >> totalNote;
@@ -31,7 +29,6 @@ int FileWorkerTxt::read_number_of_note_from_file(string fileName) {
 
 int FileWorkerTxt::read_number_of_tag_from_file(string fileName) {
 	int totalTag;
-	ifstream fin;
 	fin.open(_dataBaseFolder + "\\" + fileName);
 	if (fin) {
 		fin >> totalTag;
@@ -42,7 +39,6 @@ int FileWorkerTxt::read_number_of_tag_from_file(string fileName) {
 
 vector<string> FileWorkerTxt::read_list_tag_from_file(string fileName, int totalTag) {
 	vector<string> listTag;
-	ifstream fin;
 	string tag;
 	fin.open(_dataBaseFolder + "\\" + fileName);
 	if (fin) {
@@ -57,7 +53,6 @@ vector<string> FileWorkerTxt::read_list_tag_from_file(string fileName, int total
 }
 
 Tags FileWorkerTxt::read_list_note_with_tag_from_file(string fileNameWithoutTxt) {
-	ifstream fin;
 	Tags newTag = TagFactory::tag_generator(fileNameWithoutTxt);
 	fin.open(_dataBaseFolder + "\\" + fileNameWithoutTxt + ".txt");
 	if (fin) {
@@ -74,7 +69,6 @@ Tags FileWorkerTxt::read_list_note_with_tag_from_file(string fileNameWithoutTxt)
 }
 
 void FileWorkerTxt::write_number_of_tag_to_file(string filename, int numTotalTag) {
-	ofstream fout;
 	fout.open(_dataBaseFolder + "\\" + filename);
 	if (fout) {
 		fout << numTotalTag;
